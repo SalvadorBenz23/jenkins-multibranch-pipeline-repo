@@ -2,45 +2,54 @@
 
 This repository demonstrates the setup and usage of a Jenkins Multibranch Pipeline for building, testing, and deploying code across different branches. Each branch can have its own unique pipeline configuration using a Jenkinsfile.
 
+---
+
 ## Purpose
 
 The purpose of this repository is to:
-	1.	Showcase the creation and management of a Multibranch Pipeline in Jenkins.
-	2.	Automate builds, tests, and deployments for multiple Git branches.
-	3.	Serve as a reusable guide for configuring similar pipelines in the future.
+
+1. Showcase the creation and management of a Multibranch Pipeline in Jenkins.
+2. Automate builds, tests, and deployments for multiple Git branches.
+3. Serve as a reusable guide for configuring similar pipelines in the future.
+
+---
 
 ## Branches
 
 The repository contains the following branches:
-	•	main: The primary branch.
-	•	dev: Development branch with build-specific steps.
-	•	test: Testing branch with test-specific steps.
-	•	prod: Production branch for deployment.
+
+- **main**: The primary branch.
+- **dev**: Development branch with build-specific steps.
+- **test**: Testing branch with test-specific steps.
+- **prod**: Production branch for deployment.
 
 Each branch has its own Jenkinsfile to define branch-specific pipeline stages.
 
 ---
 
-# Step-by-Step Setup for Jenkins Multibranch Pipeline
+## Step-by-Step Setup for Jenkins Multibranch Pipeline
 
 ### 1. Repository Setup
-	1.	Cloned this repository:
 
-git clone https://github.com/SalvadorBenz23/jenkins-multibranch-pipeline-repo.git
-cd jenkins-multibranch-pipeline-repo
+1. Cloned this repository:
+   ```bash
+   git clone https://github.com/SalvadorBenz23/jenkins-multibranch-pipeline-repo.git
+   cd jenkins-multibranch-pipeline-repo
+   ```
+   
+2. Create branches for dev, test, and prod:
+   ```bash
+   git checkout -b dev
+   git push --set-upstream origin dev
 
-	2.	Created branches for dev, test, and prod:
+   git checkout -b test
+   git push --set-upstream origin test
 
-git checkout -b dev
-git push --set-upstream origin dev
+   git checkout -b prod
+   git push --set-upstream origin prod
+   ```
 
-git checkout -b test
-git push --set-upstream origin test
-
-git checkout -b prod
-git push --set-upstream origin prod
-
-	3.	Add a unique Jenkinsfile to each branch with branch-specific pipeline stages. (See files below)
+3. Added a unique Jenkinsfile to each branch with branch-specific pipeline stages. (See files below)
 
 ___
 
@@ -76,6 +85,7 @@ ___
 
 Below is an example Jenkinsfile for the dev branch:
 
+```Groovy
 pipeline {
     agent any
     stages {
@@ -97,11 +107,11 @@ pipeline {
         }
     }
 }
-
+```
 ___
 
 # Notes
-	•	This repository serves as a template for setting up Jenkins Multibranch Pipelines.
-	•	You can extend the pipelines for different environments, add more branches, or implement advanced Jenkins plugins.
+	• This repository serves as a template for setting up Jenkins Multibranch Pipelines.
+	• You can extend the pipelines for different environments, add more branches, or implement advanced Jenkins plugins.
 
 Feel free to fork this repository and customise it for your needs!
