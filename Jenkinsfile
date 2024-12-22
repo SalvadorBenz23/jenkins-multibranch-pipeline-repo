@@ -3,20 +3,27 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building in the dev environment...'
+                echo 'Building in the test environment...'
                 // Simulate building
-                sh 'echo "Build step for dev branch"'
+                sh 'echo "Build step for test branch"'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Running tests in the test environment...'
+                // Simulate testing
+                sh 'echo "Test step for test branch"'
             }
         }
         stage('Branch') {
             steps {
-                echo 'Branch: dev'
+                echo 'Branch: test'
             }
         }
     }
     post {
         always {
-            echo 'Pipeline execution completed for dev.'
+            echo 'Pipeline execution completed for test.'
         }
     }
 }
