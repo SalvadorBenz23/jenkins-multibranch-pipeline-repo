@@ -1,6 +1,6 @@
 # Jenkins Multibranch Pipeline Demo
 
-This repository demonstrates the setup and usage of a Jenkins Multibranch Pipeline for building, testing, and deploying code across different branches. Each branch can have its own unique pipeline configuration using a Jenkinsfile.
+This repository demonstrates the setup and usage of a Jenkins Multibranch Pipeline for building, testing, and deploying code across different branches. Each branch can have its own unique pipeline configuration using a Jenkinsfile. It also showcases the use of webhooks for triggering builds automatically on code changes (on push).
 
 ---
 
@@ -10,8 +10,9 @@ The purpose of this repository is to:
 
 1. Showcase the creation and management of a Multibranch Pipeline in Jenkins.
 2. Automate builds, tests, and deployments for multiple Git branches.
-3. Serve as a reusable guide for configuring similar pipelines in the future.
-
+3. Create a webhook for automated build triggers on code changes.
+4. Serve as a reusable guide for configuring similar pipelines in the future.
+   
 ---
 
 ## Branches
@@ -110,15 +111,62 @@ pipeline {
 ```
 ___
 
+# 3. Webhook Setup for Automated Builds
+
+#### A. Create a GitHub Personal Access Token (PAT)
+1. Go to GitHub Settings → Developer Settings → Personal Access Tokens → Tokens (Classic).
+2. Generate a new token with the following scopes:
+	•	repo: For accessing private/public repositories.
+	•	admin:repo_hook: For managing webhooks.
+3. Save the token securely (it will only be shown once).
+
+#### B. Add Jenkins Credentials
+1. In Jenkins, go to Manage Jenkins → Manage Credentials.
+2. Add a Secret Text credential with:
+	•	Scope: Global.
+	•	Secret: Paste the PAT.
+	•	ID: github-webhook.
+
+#### C. Configure a Webhook in GitHub
+1. Go to your GitHub repository → Settings → Webhooks → Add Webhook.
+2. Set the following:
+	•	Payload URL: http://<JENKINS_PUBLIC_IP>:8080/github-webhook/.
+	•	Content Type: application/json.
+	•	Trigger: Check Push events.
+3. Save the webhook.
+
+#### D. Enable Webhooks in Jenkins
+1. Go to the Multibranch Pipeline configuration.
+2. In the Build Triggers section, select GitHub hook trigger for GITScm polling.
+3. Save the configuration.
+
+#### E. Test the Webhook
+1. Make a change to any branch (e.g., dev) and push the changes:
+
+   ```bash
+   git add .
+   git commit -m "Test webhook"
+   git push origin dev
+   ```
+2. Verify that the webhook triggers a build in Jenkins. (limited API call when not running HTTPS, might take a while to validate but works)
+   
+___
 # Notes
 	• This repository serves as a template for setting up Jenkins Multibranch Pipelines.
 	• You can extend the pipelines for different environments, add more branches, or implement advanced Jenkins plugins.
 
-You can configure periodic builds if needed. These builds can run at a specified schedule:
-	• Navigate to Build Triggers in your Multibranch Pipeline configuration.
-	• Select Build periodically and specify a schedule using Cron syntax.
-		Example: * * * * * will run the build every minute.
+- **Periodic Builds**:  
+  Jenkins can schedule builds automatically using Cron syntax:  
+  - Navigate to **Build Triggers**.  
+  - Select **Build periodically** and specify the schedule.  
+    Example: `* * * * *` runs the pipeline every minute.
 
-This feature is optional and may not be necessary for all use cases. 
+- **GitHub API Quota**:  
+  Using Jenkins anonymously limits GitHub API requests. Authenticate Jenkins with a Personal Access Token (PAT) to increase the quota to 5000 requests per hour.
+
+- **IP Package**:  
+  An IP address package (`iproute2`) was initially considered but wasn’t required for this setup.
+
+Feel free to fork and customize this repository for your projects!
 
 Feel free to fork this repository and customise it for your needs!
