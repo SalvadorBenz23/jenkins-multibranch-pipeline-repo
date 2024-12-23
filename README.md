@@ -5,9 +5,11 @@ This repository demonstrates the setup and usage of a Jenkins Multibranch Pipeli
 **CI/CD EDIT:**
 Forgot to mention the main/master branch used as the default branch (could be configured to be prod). The main branch is here to act as a merging point from dev or test **while Webhooks allows us to test our automated deployment in each branch** before any stable version is released to main.
 
-GitHub flow
+**GitHub flow**
 
 ![image](https://github.com/user-attachments/assets/3841965f-ea28-4456-a3cd-505fae9847d6)
+
+**Pull request Workflow**
 ![image](https://github.com/user-attachments/assets/f3ad4eab-a2c6-427a-a129-2d30801675e4)
 
 Git flow (not applied for this simple project)
