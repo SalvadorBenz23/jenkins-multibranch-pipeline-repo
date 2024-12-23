@@ -3,7 +3,7 @@
 This repository demonstrates the setup and usage of a Jenkins Multibranch Pipeline for building, testing, and deploying code across different branches. Each branch can have its own unique pipeline configuration using a Jenkinsfile. It also showcases the use of webhooks for triggering builds automatically on code changes (on push).
 
 **CI/CD EDIT:**
-Forgot to mention the main/master branch used as the default branch (could be configured to be prod). The main branch is here to act as a merging point from dev or test while Webhooks allows us to test our automated deployment before any stable version to main.
+Forgot to mention the main/master branch used as the default branch (could be configured to be prod). The main branch is here to act as a merging point from dev or test while Webhooks allows us to test our automated deployment before any stable version is released to main.
 
 GitHub flow
 ![image](https://github.com/user-attachments/assets/3841965f-ea28-4456-a3cd-505fae9847d6)
