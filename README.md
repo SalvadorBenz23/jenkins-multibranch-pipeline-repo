@@ -6,7 +6,7 @@ This repository demonstrates the setup and usage of a Jenkins Multibranch Pipeli
 
 Forgot to mention the main/master branch used as the default branch (could be configured to be prod). The main branch is here to act as a merging point from dev or test **while Webhooks allows us to test our automated deployment in each branch** before any stable version is released to main.
 
-Here are some possible Workflows strategies that can be applied after the Multibranch Pipeline is configured:
+Here are some possible **Workflow strategies** that can be applied after the Multibranch Pipeline is configured:
 
 **GitHub flow**
 
