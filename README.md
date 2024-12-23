@@ -3,6 +3,7 @@
 This repository demonstrates the setup and usage of a Jenkins Multibranch Pipeline for building, testing, and deploying code across different branches. Each branch can have its own unique pipeline configuration using a Jenkinsfile. It also showcases the use of webhooks for triggering builds automatically on code changes (on push).
 
 **CI/CD EDIT:**
+
 Forgot to mention the main/master branch used as the default branch (could be configured to be prod). The main branch is here to act as a merging point from dev or test **while Webhooks allows us to test our automated deployment in each branch** before any stable version is released to main.
 
 Here are some possible Workflows strategies that can be applied after the Multibranch Pipeline is configured:
@@ -12,36 +13,45 @@ Here are some possible Workflows strategies that can be applied after the Multib
 ![image](https://github.com/user-attachments/assets/3841965f-ea28-4456-a3cd-505fae9847d6)
 
 The diagram simplifies the branching model:
-	•	Master branch: Contains deployable code.
-	•	Feature branches: Created directly from master for new features or bug fixes.
-	•	Arrows show the flow of creating, updating, and merging branches.
-	•	The simpler model is better for frequent deployments or continuous delivery.
+
+	• Master branch: Contains deployable code.
+	• Feature branches: Created directly from master for new features or bug fixes.
+	• Arrows show the flow of creating, updating, and merging branches.
+	• The simpler model is better for frequent deployments or continuous delivery.
+
 How to Use It:
-	•	Ideal for agile teams focusing on small, frequent updates.
+
+	• Ideal for agile teams focusing on small, frequent updates.
 
 **Pull request Workflow**
 ![image](https://github.com/user-attachments/assets/f3ad4eab-a2c6-427a-a129-2d30801675e4)
 
 The diagram breaks down the pull request process:
-	1.	Create a branch for a new feature or bug fix.
-	2.	Add commits to the branch.
-	3.	Open a pull request to review and discuss changes with the team.
-	4.	Merge and deploy the branch into the main branch after approval.
+
+	1. Create a branch for a new feature or bug fix.
+	2. Add commits to the branch.
+	3. Open a pull request to review and discuss changes with the team.
+	4. Merge and deploy the branch into the main branch after approval.
+ 
 How to Use It:
-	•	Incorporate this into your Git Flow or GitHub Flow process to ensure changes are reviewed and tested before merging.
+
+	• Incorporate this into your Git Flow or GitHub Flow process to ensure changes are reviewed and tested before merging.
 
 **Git flow** (not applied for this simple project)
 ![image](https://github.com/user-attachments/assets/38bd79c5-1018-43cc-81db-5f52674b448a)
 
 The diagram shows the branching model of Git Flow:
-	•	Main (master) branch: Stable, production-ready code.
-	•	Develop branch: Central hub for feature development.
-	•	Feature branches: Isolated branches for developing specific features.
-	•	Release branches: Used for preparing code for production (testing and bug fixes).
-	•	Hotfix branches: Address urgent issues in production.
-	•	Arrows illustrate merges into appropriate branches to maintain stability and workflow consistency.
+
+	• Main (master) branch: Stable, production-ready code.
+	• Develop branch: Central hub for feature development.
+	• Feature branches: Isolated branches for developing specific features.
+	• Release branches: Used for preparing code for production (testing and bug fixes).
+	• Hotfix branches: Address urgent issues in production.
+	• Arrows illustrate merges into appropriate branches to maintain stability and workflow consistency.
+
 How to Use It:
-	•	Follow this model for structured development in larger teams or when working on projects with defined release cycles.
+
+	• Follow this model for structured development in larger teams or when working on projects with defined release cycles.
 
 ---
 
