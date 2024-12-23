@@ -114,4 +114,11 @@ ___
 	• This repository serves as a template for setting up Jenkins Multibranch Pipelines.
 	• You can extend the pipelines for different environments, add more branches, or implement advanced Jenkins plugins.
 
+You can configure periodic builds if needed. These builds can run at a specified schedule:
+	• Navigate to Build Triggers in your Multibranch Pipeline configuration.
+	• Select Build periodically and specify a schedule using Cron syntax.
+		Example: * * * * * will run the build every minute.
+
+This feature is optional and may not be necessary for all use cases. 
+
 Feel free to fork this repository and customise it for your needs!
