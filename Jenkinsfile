@@ -4,13 +4,12 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building in the dev environment...'
-                // Simulate building
                 sh 'echo "Build step for dev branch"'
             }
         }
-        stage('Branch') {
+        stage('Test Webhook') {
             steps {
-                echo 'Branch: dev'
+                echo 'Testing webhook for dev branch...'
             }
         }
     }
